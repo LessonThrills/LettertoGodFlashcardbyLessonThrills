@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Letter to God Flashcards by LessonThrills</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    .flashcard-container {
+      position: relative;
+      width: 90%;
+      max-width: 500px;
+      margin-top: 30px;
+      perspective: 1000px;
+    }
+
+    .flashcard {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .flashcard-content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+      color: white;
+      font-size: 18px;
+    }
+
+    .flashcard .question {
+      transform: rotateY(0deg);
+    }
+
+    .flashcard .answer {
+      transform: rotateY(180deg);
+      position: absolute;
+      font-size: 16px;
+      color: #fff;
+      background: linear-gradient(135deg, #feb47b, #ff7e5f);
+    }
+
+    .flashcard.flip {
+      transform: rotateY(180deg);
+    }
+
+    .navigation-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .nav-button {
+      background-color: #ff7e5f;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      margin: 0 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .nav-button:hover {
+      background-color: #feb47b;
+    }
+
+    .nav-button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    .youtube-section {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .youtube-link {
+      display: inline-flex;
+      align-items: center;
+      color: #333;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .youtube-link span {
+      margin-right: 8px;
+    }
+
+    .youtube-link .icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .youtube-link img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .created-by {
+      margin-top: 30px;
+      text-align: center;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      .flashcard {
+        height: 250px;
+      }
+
+      .flashcard-content {
+        font-size: 16px;
+      }
+
+      .nav-button {
+        padding: 8px 12px;
+      }
+
+      .youtube-link {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Letter to God Flashcards by LessonThrills</h1>
+
+  <div class="flashcard-container">
+    <div class="flashcard" id="flashcard">
+      <div class="flashcard-content question" id="question">Flashcard 1: What was Lencho’s house situated on?</div>
+      <div class="flashcard-content answer" id="answer">Answer: Lencho’s house was situated on the crest of a low hill, which provided a view of the river and the fields of ripe corn.</div>
+    </div>
+  </div>
+
+  <div class="navigation-buttons">
+    <button class="nav-button" id="prev-btn">⮜</button>
+    <button class="nav-button" id="next-btn">⮞</button>
+    <button class="nav-button" id="first-btn">⬅</button>
+  </div>
+
+  <div class="youtube-section">
+    <a class="youtube-link" href="https://youtube.com/@lessonthrills?si=ZO-iYNu_oudw4kht" target="_blank">
+      <span>Click this YouTube icon to visit our channel</span>
+      <div class="icon"><img src="https://www.iconfinder.com/data/icons/social-media-2210/24/YouTube-512.png" alt="YouTube"></div>
+    </a>
+  </div>
+
+  <div class="created-by">Created by LessonThrills</div>
+
+  <script>
+    const flashcards = [
+      { question: "Flashcard 1: What was Lencho’s house situated on?", answer: "Answer: Lencho’s house was situated on the crest of a low hill, which provided a view of the river and the fields of ripe corn." },
+      { question: "Flashcard 2: What was Lencho’s occupation?", answer: "Answer: Lencho was a farmer." },
+      { question: "Flashcard 3: What did Lencho hope for at the beginning of the story?", answer: "Answer: Lencho hoped for rain to nourish his crops, which were ready for harvest." },
+      { question: "Flashcard 4: How did Lencho describe the raindrops?", answer: "Answer: Lencho described the raindrops as new coins, with large drops being ten-cent coins and smaller drops being five-cent coins." },
+      { question: "Flashcard 5: What happened after the rain began?", answer: "Answer: A hailstorm followed the rain, which destroyed Lencho’s entire cornfield." },
+      { question: "Flashcard 6: What was Lencho’s reaction to the destruction of his crops?", answer: "Answer: Lencho was devastated, saying that even a plague of locusts would have left more than the hail did." },
+      { question: "Flashcard 7: What did Lencho decide to do after the storm?", answer: "Answer: Lencho decided to write a letter to God, asking for help." },
+      { question: "Flashcard 8: How much money did Lencho ask for in his letter to God?", answer: "Answer: Lencho asked for 100 pesos to help him survive and plant a new crop." },
+      { question: "Flashcard 9: Where did Lencho take his letter?", answer: "Answer: Lencho took his letter to the post office." },
+      { question: "Flashcard 10: How did the post office employees react to Lencho’s letter?", answer: "Answer: The employees were amused at first but admired Lencho’s faith and decided to help." },
+      { question: "Flashcard 11: Who is the protagonist of the story?", answer: "Answer: Lencho, the farmer." },
+      { question: "Flashcard 12: How is Lencho’s faith in God described?", answer: "Answer: Lencho had an unshakable faith in God, believing that God would answer his request for financial help." },
+      { question: "Flashcard 13: How is the postmaster portrayed in the story?", answer: "Answer: The postmaster is portrayed as a kind and compassionate man who admired Lencho’s faith and took it upon himself to respond to Lencho's letter." },
+      { question: "Flashcard 14: What did the postmaster do after reading Lencho’s letter?", answer: "Answer: He collected money from his employees and friends and sent it to Lencho, signing the letter as 'God'." },
+      { question: "Flashcard 15: What is Lencho’s personality like?", answer: "Answer: Lencho is hardworking, faithful, and somewhat naive, as he believes his letter will directly reach God." },
+      { question: "Flashcard 16: What is the central theme of 'A Letter to God'?", answer: "Answer: The central theme is faith and trust in divine intervention during difficult times." },
+      { question: "Flashcard 17: What does the hailstorm symbolize in the story?", answer: "Answer: The hailstorm symbolizes destruction and the uncontrollable forces of nature that can devastate human efforts." },
+      { question: "Flashcard 18: How does the letter symbolize Lencho’s faith?", answer: "Answer: The letter represents Lencho’s deep faith in God, as he believes that God will personally receive and respond to his request." },
+      { question: "Flashcard 19: What is ironic about Lencho’s reaction to receiving the money?", answer: "Answer: Lencho is angry because he thinks the post office employees stole the remaining money, unaware that they were the ones who collected and sent it." },
+      { question: "Flashcard 20: What does the rain initially symbolize for Lencho?", answer: "Answer: The rain symbolizes hope and prosperity, as it is essential for a good harvest." },
+      { question: "Flashcard 21: Explain the significance of Lencho’s faith in God and how it drives the plot of the story.", answer: "Answer: Lencho’s faith is unwavering, even in the face of disaster. His belief that God will help him pushes him to write the letter, which becomes the central action of the plot. The story hinges on this act of faith, leading to a series of ironic events when the postmaster and his employees respond to Lencho’s plea." },
+      { question: "Flashcard 22: Describe the contrast between Lencho’s perception of the rain and its actual outcome.", answer: "Answer: Lencho initially sees the rain as a blessing, referring to the raindrops as new coins that will bring prosperity. However, the rain quickly turns into a destructive hailstorm, which ruins his crops and devastates his livelihood, showing how nature can be unpredictable and cruel." },
+      { question: "Flashcard 23: Analyze the character of the postmaster and his motivations for helping Lencho.", answer: "Answer: The postmaster is initially amused by Lencho’s letter but soon feels inspired by Lencho’s deep faith. His decision to gather money and send it in God’s name shows his desire to preserve Lencho’s faith. The postmaster acts out of kindness and a sense of responsibility to uphold Lencho’s trust in God, even though he cannot fulfill the entire request." },
+      { question: "Flashcard 24: How does the story depict the conflict between humans and nature?", answer: "Answer: The story portrays nature as both a provider and a destroyer. While the rain initially promises a good harvest, the hailstorm quickly destroys Lencho’s crops, leaving him helpless. This conflict between humans' efforts and the uncontrollable forces of nature highlights the vulnerability of farmers like Lencho, who depend on the weather for their survival." },
+      { question: "Flashcard 25: Discuss the role of irony in 'A Letter to God.'", answer: "Answer: Irony plays a crucial role in the story, particularly in Lencho’s reaction to the money he receives. While he believes that the postal employees have stolen part of the money, it is actually these same employees who collected the money out of goodwill. The irony lies in Lencho’s misjudgment, as he fails to recognize the human generosity behind the act and instead blames them." },
+      { question: "Flashcard 26: What is the role of hope in Lencho’s decisions?", answer: "Answer: Hope plays a critical role, as Lencho’s unshaken belief in divine help pushes him to seek out God’s intervention, leading him to write the letter that drives the events of the story." },
+      { question: "Flashcard 27: How does the setting of the story enhance its themes?", answer: "Answer: The isolated rural setting, surrounded by nature, mirrors the themes of vulnerability and faith. Lencho's dependence on nature emphasizes how uncontrollable forces affect his livelihood, deepening the need for faith in a higher power." },
+      { question: "Flashcard 28: What does the postmaster’s decision to sign 'God' in the letter reveal about his character?", answer: "Answer: The postmaster’s decision shows his empathy and understanding. He wishes to maintain Lencho’s faith, choosing to sign 'God' in order to preserve Lencho’s belief in divine intervention." },
+      { question: "Flashcard 29: How is the theme of human kindness versus distrust portrayed?", answer: "Answer: The theme is shown through Lencho’s complete faith in God yet suspicion towards the post office workers, who, ironically, are the ones who help him. This contrast highlights how blind faith can lead to a lack of trust in others." },
+      { question: "Flashcard 30: How does the story reflect on the human need for security?", answer: "Answer: Lencho’s desperate plea to God reflects a deep human need for security in the face of uncertainty. His faith in God provides a psychological comfort when the stability of his livelihood is shattered." },
+      { question: "Flashcard 31: What literary device is used when Lencho describes the raindrops as 'new coins'?", answer: "Answer: Metaphor. Lencho compares the raindrops to new coins to symbolize wealth and prosperity, reflecting his hope that the rain will bring a good harvest." },
+      { question: "Flashcard 32: What role does nature play in the story?", answer: "Answer: Nature plays both a nurturing and destructive role. It is essential to Lencho’s livelihood but also unpredictable and devastating, as seen when the hailstorm destroys the crops, symbolizing the uncontrollable forces that shape human life." },
+      { question: "Flashcard 33: How does the hailstorm act as a turning point in the story?", answer: "Answer: The hailstorm shifts the story from one of hope to despair. It destroys Lencho’s crops, pushing him to write the letter to God and initiating the central conflict between Lencho’s faith and reality." },
+      { question: "Flashcard 34: How does the story demonstrate the fragility of human livelihood?", answer: "Answer: The story illustrates how fragile a farmer’s livelihood can be, entirely dependent on weather. Lencho’s crops are ruined in an instant, showing how external factors beyond human control can lead to disaster." },
+      { question: "Flashcard 35: How does the letter act as a symbol of Lencho’s faith?", answer: "Answer: The letter symbolizes Lencho’s unwavering belief that God will provide for him. His decision to write the letter shows his deep reliance on divine intervention during hardship." },
+      { question: "Flashcard 36: What is Lencho’s attitude toward God after the hailstorm?", answer: "Answer: Lencho’s attitude reflects complete faith and trust. He believes God will help him and does not doubt that his plea for 100 pesos will be answered." },
+      { question: "Flashcard 37: How does the postmaster’s involvement with Lencho’s letter reveal his character?", answer: "Answer: The postmaster’s actions reveal his kindness, generosity, and respect for Lencho’s faith. Though initially amused by the letter, he takes Lencho’s faith seriously and decides to help by collecting money." },
+      { question: "Flashcard 38: How does the theme of faith impact Lencho’s actions?", answer: "Answer: Faith drives Lencho’s actions throughout the story. His belief in divine intervention pushes him to write the letter to God, seeking help, and later leads to his unwavering confidence that God would deliver the money." },
+      { question: "Flashcard 39: What is the significance of Lencho’s reaction to receiving less than 100 pesos?", answer: "Answer: Lencho’s anger at receiving less than 100 pesos highlights his unwavering faith in God and mistrust in people. He is convinced that God provided the full amount and accuses the post office workers of stealing, revealing the irony of his misjudgment." },
+      { question: "Flashcard 40: What does the interaction between Lencho and the postmaster illustrate about human nature?", answer: "Answer: The interaction highlights the gap between faith and human generosity. While Lencho appeals to God for help, it is the postmaster’s compassion that fulfills part of the request. Lencho’s distrust of the post office staff shows how blind faith can sometimes overlook human kindness." },
+      { question: "Flashcard 41: How does Lencho’s perception of the post office workers contrast with reality?", answer: "Answer: Lencho perceives the post office workers as thieves who stole part of the money. In reality, they were the ones who collected the money for him, highlighting the irony and misjudgment in Lencho’s faith." },
+      { question: "Flashcard 42: What literary device is present in the line 'The big drops are ten cent pieces and the little ones are fives'?", answer: "Answer: This is a metaphor, where Lencho compares raindrops to money, symbolizing his hope for a prosperous harvest." },
+      { question: "Flashcard 43: How does Lencho’s faith influence his interpretation of the world?", answer: "Answer: Lencho’s faith shapes his entire worldview. He sees the rain as a blessing from God, and when faced with loss, he immediately turns to divine intervention, believing that God will restore what has been taken." },
+      { question: "Flashcard 44: How does the postmaster’s reaction to Lencho’s letter evolve?", answer: "Answer: Initially, the postmaster finds Lencho’s letter amusing. However, he quickly grows to admire Lencho’s faith and takes it upon himself to help by collecting money and responding to the letter as 'God'." },
+      { question: "Flashcard 45: How is the irony in Lencho’s reaction to the money he receives central to the story?", answer: "Answer: The irony lies in Lencho’s belief that the post office workers stole part of the money, when in fact they were the ones who contributed to it. This irony underscores the gap between Lencho’s faith in divine intervention and his mistrust of human effort." },
+      { question: "Flashcard 46: What role does the weather play in shaping the plot?", answer: "Answer: The weather acts as a driving force in the plot. The rain initially brings hope for a successful harvest, but the sudden hailstorm destroys the crops, leading Lencho to write his letter to God. The unpredictable weather symbolizes the challenges of relying on nature for livelihood." },
+      { question: "Flashcard 47: How does the story portray the relationship between humans and nature?", answer: "Answer: The story illustrates how humans are at the mercy of nature. Lencho’s crops, his only means of survival, are destroyed by a sudden hailstorm, highlighting the unpredictability and power of nature." },
+      { question: "Flashcard 48: What does the postmaster’s act of charity symbolize?", answer: "Answer: The postmaster’s act of charity symbolizes human compassion and kindness. While Lencho appeals to God, it is through the kindness of strangers that his needs are partially met, showing the importance of community in times of crisis." },
+      { question: "Flashcard 49: How does Lencho’s faith in God affect his relationships with people?", answer: "Answer: Lencho’s strong faith in God leads him to distrust people. He believes God will provide for him but suspects the post office workers of theft, failing to recognize the human kindness that actually helped him." },
+      { question: "Flashcard 50: How does the theme of gratitude play out in the story?", answer: "Answer: Gratitude is notably absent in Lencho’s response to receiving the money. Instead of being thankful, Lencho is angry that he did not receive the full amount and blames the post office workers, showing how his faith blinds him to the kindness of others." },
+      { question: "Flashcard 51: What lesson can be learned about faith from Lencho’s actions?", answer: "Answer: The story suggests that while faith can provide strength, it can also lead to unrealistic expectations and a lack of appreciation for human efforts. Lencho’s faith in God is unwavering, but it prevents him from recognizing the generosity of the post office workers." },
+      { question: "Flashcard 52: How does the ending of the story highlight the theme of misunderstanding?", answer: "Answer: The ending highlights Lencho’s misunderstanding of the situation. He believes the postal workers are dishonest, failing to realize that they were the ones who collected the money for him, illustrating how faith can sometimes cloud judgment." },
+      { question: "Flashcard 53: How does Lencho’s pride influence his actions?", answer: "Answer: Lencho’s pride in his self-reliance and hard work leads him to believe that he deserves divine help. When he receives less than expected, his pride prevents him from being grateful, and instead he accuses others of wrongdoing." },
+      { question: "Flashcard 54: In what ways does the story explore the concept of trust?", answer: "Answer: The story explores trust in both divine and human intervention. Lencho’s absolute trust in God contrasts with his lack of trust in the post office workers, revealing a gap between his spiritual beliefs and his view of human nature." },
+      { question: "Flashcard 55: How does the story critique blind faith?", answer: "Answer: The story critiques blind faith by showing how Lencho’s unwavering belief in divine intervention leads him to misinterpret the actions of the postal workers. His faith in God is so strong that he overlooks the very real kindness of others, suggesting that blind faith can lead to misunderstanding." },
+      { question: "Flashcard 56: What role does generosity play in the story?", answer: "Answer: Generosity is a key theme, as the postmaster and his employees pool their money to help Lencho. Their actions reflect the power of human kindness, even though Lencho fails to recognize their generosity." },
+      { question: "Flashcard 57: How does Lencho’s letter reflect his relationship with God?", answer: "Answer: Lencho’s letter reflects a deeply personal and direct relationship with God. He writes to God as if speaking to a trusted friend, confident that his request will be fulfilled. This shows his simple yet profound faith." },
+      { question: "Flashcard 58: How does the story use contrast to enhance its themes?", answer: "Answer: The story contrasts Lencho’s faith in God with his suspicion of the post office workers, highlighting the irony of the situation. It also contrasts the natural forces that destroy Lencho’s crops with the human generosity that attempts to restore his hope." },
+      { question: "Flashcard 59: How does the postmaster’s reaction to Lencho’s letter highlight the power of faith?", answer: "Answer: The postmaster is moved by Lencho’s faith, so much so that he feels compelled to help. His reaction shows that even those who may not share Lencho’s belief in divine intervention can still be inspired by the strength of his faith." },
+      { question: "Flashcard 60: How does Lencho’s character represent the struggles of farmers?", answer: "Answer: Lencho’s character represents the struggles of farmers who rely on nature for their survival. His hard work is undone by a single hailstorm, reflecting the vulnerability of those whose livelihoods depend on the unpredictable forces of nature." },
+      { question: "Flashcard 61: How does the story critique the concept of entitlement?", answer: "Answer: Lencho’s reaction to receiving less than 100 pesos reflects a sense of entitlement. He believes that God owes him the full amount, and when he does not receive it, he blames others, showing how entitlement can lead to ingratitude." },
+      { question: "Flashcard 62: How does Lencho’s pride affect his perception of others?", answer: "Answer: Lencho’s pride prevents him from seeing the generosity of the post office workers. His belief that God alone can provide leads him to mistrust the very people who help him, revealing how pride can cloud judgment." },
+      { question: "Flashcard 63: How does the postmaster embody the theme of compassion?", answer: "Answer: The postmaster embodies compassion by going out of his way to help Lencho. He collects money from his employees and friends, not out of obligation, but out of a desire to preserve Lencho’s faith, showing the power of human kindness." },
+      { question: "Flashcard 64: What is the significance of the postmaster’s decision to respond to Lencho’s letter?", answer: "Answer: The postmaster’s decision to respond to Lencho’s letter reflects his desire to preserve Lencho’s faith. By signing the letter as 'God,' he ensures that Lencho’s belief in divine intervention remains intact, even though the help came from humans." },
+      { question: "Flashcard 65: How does the story reflect the vulnerability of those who rely on agriculture?", answer: "Answer: The story highlights the vulnerability of farmers like Lencho, whose entire livelihood depends on the weather. A single hailstorm destroys his crops, leaving him helpless, which reflects the precariousness of agricultural life." },
+      { question: "Flashcard 66: How does Lencho’s unwavering faith affect his interactions with others?", answer: "Answer: Lencho’s faith in God is so strong that it leads him to mistrust the post office workers. He assumes they stole part of the money, failing to see their generosity. This shows how unwavering faith can sometimes create a disconnect between spiritual beliefs and human relationships." },
+      { question: "Flashcard 67: How does the story explore the theme of human resilience?", answer: "Answer: Lencho’s decision to write a letter to God after the hailstorm reflects his resilience. Despite the destruction of his crops, he does not give up hope, demonstrating the strength of human perseverance in the face of adversity." },
+      { question: "Flashcard 68: How does Lencho’s faith in God contrast with his lack of faith in people?", answer: "Answer: Lencho’s faith in God is absolute, but he does not extend the same trust to people. This is seen when he accuses the post office workers of theft, even though they were the ones who helped him. This contrast highlights the complexity of trust in both divine and human relationships." },
+      { question: "Flashcard 69: How does the story depict the power of belief?", answer: "Answer: The story shows how belief can shape one’s actions and worldview. Lencho’s faith in God drives him to write the letter, and the postmaster’s belief in kindness motivates him to respond. Both forms of belief influence the events of the story." },
+      { question: "Flashcard 70: How does Lencho’s reaction to receiving less than 100 pesos reflect his expectations of God?", answer: "Answer: Lencho’s anger at receiving less than 100 pesos shows that he expected God to fulfill his request exactly. His faith leads him to believe that God would provide the full amount, and when this does not happen, he assumes human interference." },
+      { question: "Flashcard 71: How does the story explore the theme of misunderstanding?", answer: "Answer: Misunderstanding is a central theme in the story. Lencho misunderstands the actions of the post office workers, believing they stole from him, when in reality they were trying to help. This misunderstanding highlights the gap between Lencho’s faith and reality." },
+      { question: "Flashcard 72: How does the story illustrate the unpredictability of nature?", answer: "Answer: The hailstorm serves as a reminder of the unpredictability of nature. Lencho’s crops are destroyed in a matter of minutes, showing how even the best-laid plans can be undone by forces beyond human control." },
+      { question: "Flashcard 73: How does the story reflect the importance of community in times of crisis?", answer: "Answer: The postmaster and his employees come together to help Lencho in his time of need, reflecting the importance of community support during difficult times. Their collective effort highlights the power of human kindness." },
+      { question: "Flashcard 74: How does Lencho’s faith in God affect his ability to accept human help?", answer: "Answer: Lencho’s faith in God is so strong that he fails to recognize human help when it is given. He assumes the post office workers are thieves, unable to see their generosity, showing how his faith blinds him to the good in others." },
+      { question: "Flashcard 75: How does the story depict the relationship between faith and reality?", answer: "Answer: The story contrasts Lencho’s faith in divine intervention with the reality of human kindness. While Lencho believes that God will provide for him, it is actually the post office workers who help him, showing how faith and reality can sometimes be at odds." },
+      { question: "Flashcard 76: How does the postmaster’s decision to help Lencho reflect his empathy?", answer: "Answer: The postmaster’s decision to help Lencho reflects his empathy for someone in need. He recognizes the power of Lencho’s faith and wants to preserve it, demonstrating his compassion and understanding." },
+      { question: "Flashcard 77: How does the story portray the fragility of hope?", answer: "Answer: The story shows how hope can be fragile, especially when it is based on faith in something outside of human control. Lencho’s hope for a good harvest is shattered by the hailstorm, and his hope for divine help is complicated by his mistrust of others." },
+      { question: "Flashcard 78: How does Lencho’s relationship with nature change over the course of the story?", answer: "Answer: At the beginning, Lencho views nature as a provider, essential for his crops and livelihood. However, after the hailstorm, his relationship with nature becomes one of despair and helplessness as it destroys everything he worked for, forcing him to seek divine help." },
+      { question: "Flashcard 79: How does the letter to God symbolize Lencho’s faith?", answer: "Answer: The letter represents Lencho’s unshakable faith in God. By writing to God, Lencho demonstrates his belief that divine intervention will provide for him, even in the face of seemingly insurmountable challenges." },
+      { question: "Flashcard 80: What is the role of compassion in the postmaster’s actions?", answer: "Answer: Compassion drives the postmaster’s decision to help Lencho. Despite initially laughing at Lencho’s letter, the postmaster is moved by his faith and decides to collect money to help him, showing the power of empathy and kindness." },
+      { question: "Flashcard 81: How does the hailstorm function as a symbol in the story?", answer: "Answer: The hailstorm symbolizes the unpredictability and destructive power of nature. It serves as a turning point in the story, representing the uncontrollable forces that can destroy human effort and hard work in an instant." },
+      { question: "Flashcard 82: How does Lencho’s perception of divine intervention influence his response to the postmaster’s help?", answer: "Answer: Lencho believes that God will answer his prayers directly, which leads him to misinterpret the postmaster’s help. He assumes that the money he received came from God and that the post office workers stole part of it, showing how his perception of divine intervention clouds his judgment." },
+      { question: "Flashcard 83: What is the significance of the postmaster signing the letter 'God'?", answer: "Answer: The postmaster signs the letter 'God' to preserve Lencho’s faith in divine intervention. He understands that Lencho’s belief in God is crucial to his sense of hope, so he chooses to maintain the illusion that the money came directly from God." },
+      { question: "Flashcard 84: How does Lencho’s reaction to the money reveal his entitlement?", answer: "Answer: Lencho’s anger at receiving less than 100 pesos reveals his sense of entitlement. He believes that God owes him the full amount, and when he does not receive it, he blames others, showing how entitlement can lead to a lack of gratitude." },
+      { question: "Flashcard 85: How does the story explore the theme of resilience in the face of hardship?", answer: "Answer: Lencho’s decision to write a letter to God after the hailstorm reflects his resilience. Despite losing his crops, he does not give up hope and instead seeks divine intervention, demonstrating his determination to overcome adversity." },
+      { question: "Flashcard 86: How does Lencho’s unwavering faith influence his interactions with the post office workers?", answer: "Answer: Lencho’s faith in God leads him to distrust the post office workers, as he assumes they stole part of the money. His unwavering belief in divine intervention blinds him to the kindness and generosity of the people around him." },
+      { question: "Flashcard 87: How does the story portray the tension between faith and human generosity?", answer: "Answer: The story illustrates the tension between Lencho’s faith in God and the human generosity that actually provides for him. While Lencho believes that God will send him the money, it is the postmaster and his employees who fulfill his request, highlighting the disconnect between faith and reality." },
+      { question: "Flashcard 88: How does the postmaster’s decision to help Lencho reflect his understanding of faith?", answer: "Answer: The postmaster’s decision to help Lencho reflects his recognition of the power of faith. He understands that Lencho’s belief in divine intervention is essential to his hope and survival, so he chooses to support it by sending the money in God’s name." },
+      { question: "Flashcard 89: How does the story depict the vulnerability of those who depend on nature for their livelihood?", answer: "Answer: The story highlights the vulnerability of farmers like Lencho, whose livelihoods are at the mercy of the weather. The sudden hailstorm destroys Lencho’s crops, leaving him with no means of survival and forcing him to rely on faith for help." },
+      { question: "Flashcard 90: How does the letter symbolize Lencho’s plea for survival?", answer: "Answer: The letter represents Lencho’s desperate plea for survival. After the hailstorm destroys his crops, Lencho turns to God for help, believing that divine intervention is his only hope for saving his family from starvation." },
+      { question: "Flashcard 91: How does Lencho’s reaction to receiving less than 100 pesos reflect his rigid expectations?", answer: "Answer: Lencho’s anger at receiving less than 100 pesos shows that he had rigid expectations of divine intervention. He expected God to fulfill his request exactly as asked, and when this did not happen, he became frustrated, showing how rigid faith can lead to disappointment." },
+      { question: "Flashcard 92: How does the story critique the idea of blind faith?", answer: "Answer: The story critiques blind faith by showing how Lencho’s unquestioning belief in divine intervention leads him to misinterpret the situation. His faith in God is so strong that he overlooks the generosity of the post office workers, revealing the limitations of blind faith." },
+      { question: "Flashcard 93: How does Lencho’s relationship with the postmaster evolve throughout the story?", answer: "Answer: Lencho’s relationship with the postmaster is indirect but central to the plot. While Lencho never directly interacts with the postmaster, the postmaster’s decision to help reflects his admiration for Lencho’s faith, even though Lencho remains unaware of the postmaster’s role." },
+      { question: "Flashcard 94: How does the story depict the power of community support?", answer: "Answer: The postmaster and his employees come together to help Lencho in his time of need, reflecting the power of community support. Their collective effort highlights how people can make a difference in each other’s lives, even when their actions go unrecognized." },
+      { question: "Flashcard 95: How does Lencho’s faith in God contrast with his skepticism towards others?", answer: "Answer: Lencho’s faith in God is absolute, but he is skeptical of people. This contrast is evident when he accuses the post office workers of stealing the money, despite their efforts to help him, highlighting how faith can sometimes overshadow human generosity." },
+      { question: "Flashcard 96: How does the postmaster’s decision to sign the letter 'God' reflect his respect for Lencho’s faith?", answer: "Answer: The postmaster’s decision to sign the letter 'God' reflects his respect for Lencho’s faith. He understands the importance of maintaining Lencho’s belief in divine intervention, so he chooses to act in a way that preserves Lencho’s trust in God." },
+      { question: "Flashcard 97: How does the story explore the theme of hope in the face of adversity?", answer: "Answer: The story explores hope through Lencho’s unwavering belief that God will help him after the hailstorm destroys his crops. Despite losing everything, Lencho’s faith provides him with the hope he needs to keep going." },
+      { question: "Flashcard 98: How does Lencho’s letter symbolize his reliance on divine intervention?", answer: "Answer: Lencho’s letter symbolizes his complete reliance on divine intervention. He believes that only God can help him in his time of need, reflecting the depth of his faith and his dependence on spiritual rather than human assistance." },
+      { question: "Flashcard 99: How does the story critique Lencho’s failure to recognize human generosity?", answer: "Answer: The story critiques Lencho’s failure to recognize human generosity by showing how he misinterprets the post office workers’ actions. Despite their efforts to help, Lencho assumes they are thieves, highlighting the limitations of blind faith and the importance of gratitude." },
+      { question: "Flashcard 100: What is the overall message of 'A Letter to God'?", answer: "Answer: The overall message of the story is that faith can be a source of strength in difficult times, but it is important to recognize and appreciate the kindness and generosity of others. The story encourages readers to balance faith in divine intervention with an understanding of human effort." }
+    ];
+
+    let currentIndex = 0;
+
+    const flashcard = document.getElementById("flashcard");
+    const questionEl = document.getElementById("question");
+    const answerEl = document.getElementById("answer");
+    const nextBtn = document.getElementById("next-btn");
+    const prevBtn = document.getElementById("prev-btn");
+    const firstBtn = document.getElementById("first-btn");
+
+    function updateFlashcard() {
+      const currentCard = flashcards[currentIndex];
+      questionEl.textContent = currentCard.question;
+      answerEl.textContent = currentCard.answer;
+
+      // Disable buttons at boundaries
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === flashcards.length - 1;
+    }
+
+    function flipFlashcard() {
+      flashcard.classList.toggle('flip');
+      new Audio('https://www.soundjay.com/button/button-4.mp3').play(); // Add click sound effect
+    }
+
+    flashcard.addEventListener('click', flipFlashcard);
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < flashcards.length - 1) {
+        currentIndex++;
+        updateFlashcard();
+      } else {
+        alert("End of flashcards");
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateFlashcard();
+      }
+    });
+
+    firstBtn.addEventListener('click', () => {
+      currentIndex = 0;
+      updateFlashcard();
+    });
+
+    updateFlashcard(); // Initialize first flashcard
+  </script>
+</body>
+</html>
